@@ -1,12 +1,12 @@
 services:
   mosquitto:
-    build: .
+    image: nguyendkn/mosquitto
     container_name: mosquitto
     ports:
-      - "1883:1883" # Mở cổng MQTT
+      - "1883:1883"
     environment:
-      MQTT_USER: "your_username"       # Thay bằng username của bạn
-      MQTT_PASSWORD: "your_password"   # Thay bằng password của bạn
+      MQTT_USER: "your_username"
+      MQTT_PASSWORD: "your_password"
     volumes:
       - ./mosquitto_data:/mosquitto/data
       - ./mosquitto_log:/mosquitto/log
