@@ -1,4 +1,4 @@
-name: Build rk3588 onnx2rknn Docker image
+name: Build rk3588 onnx2rknn aarch64 Docker image
 
 on:
   push:
