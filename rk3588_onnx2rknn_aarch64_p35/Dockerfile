@@ -26,8 +26,8 @@ RUN cd /tmp && \
     cd .. && rm -rf Python-3.5.10*
 
 # Copy file RKNN Toolkit và các thư viện cần thiết
-COPY rk3588_onnx2rknn_aarch64/rknn_toolkit-1.7.5-cp35-cp35m-linux_aarch64.whl /root/
-COPY rk3588_onnx2rknn_aarch64/requirements.txt /root/
+COPY rk3588_onnx2rknn_aarch64_p35/rknn_toolkit-1.7.5-cp35-cp35m-linux_aarch64.whl /root/
+COPY rk3588_onnx2rknn_aarch64_p35/requirements.txt /root/
 
 # Cài đặt RKNN Toolkit và các thư viện Python
 RUN python3.5 -m pip install --upgrade pip && \
