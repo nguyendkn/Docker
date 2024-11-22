@@ -12,6 +12,6 @@ COPY rk3588_onnx2rknn/rknn_toolkit2-2.0.0b12+1fc94019-cp310-cp310-linux_x86_64.w
 
 RUN pip3 install /root/rknn_toolkit2-2.0.0b12+1fc94019-cp310-cp310-linux_x86_64.whl
 
-COPY rk3588_onnx2rknn/requirements-beta.txt requirements-beta.txt
+COPY rk3588_onnx2rknn/requirements.txt requirements.txt
 
-RUN pip3 install -r requirements-beta.txt
+RUN pip3 install -r requirements.txt
