@@ -11,8 +11,9 @@ RUN apt update && \
         gcc vim libprotobuf-dev zlib1g zlib1g-dev libsm6 libgl1 libglib2.0-0 android-tools-adb && \
     apt-get clean
 
-# Tải và biên dịch Python 3.5
-RUN curl -O https://www.python.org/ftp/python/3.7.10/Python-3.7.10.tgz && \
+# Tải và biên dịch Python 3.7
+ADD https://www.python.org/ftp/python/3.7.10/Python-3.7.10.tgz /tmp/Python-3.7.10.tgz
+RUN cd /tmp && \
     tar xzf Python-3.7.10.tgz && \
     cd Python-3.7.10 && \
     ./configure --enable-optimizations && \
@@ -21,16 +22,16 @@ RUN curl -O https://www.python.org/ftp/python/3.7.10/Python-3.7.10.tgz && \
     cd .. && rm -rf Python-3.7.10*
 
 # Copy file RKNN Toolkit và các thư viện cần thiết vào container
-COPY rk3588_onnx2rknn_aarch64_p37/rknn_toolkit-1.7.5-cp35-cp35m-linux_aarch64.whl /root/
+COPY rk3588_onnx2rknn_aarch64_p37/rknn_toolkit-1.7.5-cp37-cp37m-linux_aarch64.whl /root/
 COPY rk3588_onnx2rknn_aarch64_p37/requirements.txt /root/
 
 # Cài đặt RKNN Toolkit
-RUN python3.5 -m pip install --upgrade pip && \
-    python3.5 -m pip install /root/rknn_toolkit-1.7.5-cp35-cp35m-linux_aarch64.whl && \
-    python3.5 -m pip install -r /root/requirements.txt
+RUN python3.7 -m pip install --upgrade pip && \
+    python3.7 -m pip install /root/rknn_toolkit-1.7.5-cp37-cp37m-linux_aarch64.whl && \
+    python3.7 -m pip install -r /root/requirements.txt
 
 # Xóa file không cần thiết để giảm kích thước image
-RUN rm -f /root/rknn_toolkit-1.7.5-cp35-cp35m-linux_aarch64.whl /root/requirements.txt
+RUN rm -f /root/rknn_toolkit-1.7.5-cp37-cp37m-linux_aarch64.whl /root/requirements.txt
 
 # Đặt thư mục làm việc
 WORKDIR /workspace
