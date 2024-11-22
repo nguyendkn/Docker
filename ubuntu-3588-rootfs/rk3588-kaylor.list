@@ -1,2 +1,0 @@
-deb [signed-by=/etc/apt/keyrings/nguyendkn-keyring.gpg] http://apt.nguyendkndut.cn/rk3588/ubuntu jammy main
-deb [signed-by=/etc/apt/keyrings/nguyendkn-keyring.gpg] http://apt.nguyendkndut.cn/nguyendkndut/ nguyendkndut main

@@ -1,1 +1,0 @@
-docker run -d --name systemd --cap-add sys_admin --security-opt apparmor=unconfined ubuntu-systemd
