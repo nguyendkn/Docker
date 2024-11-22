@@ -12,17 +12,17 @@ RUN apt update && \
     apt-get clean
 
 # Tải và biên dịch Python 3.5
-RUN curl -O https://www.python.org/ftp/python/3.5.10/Python-3.5.10.tgz && \
-    tar xzf Python-3.5.10.tgz && \
-    cd Python-3.5.10 && \
+RUN curl -O https://www.python.org/ftp/python/3.7.10/Python-3.7.10.tgz && \
+    tar xzf Python-3.7.10.tgz && \
+    cd Python-3.7.10 && \
     ./configure --enable-optimizations && \
     make -j$(nproc) && \
     make altinstall && \
-    cd .. && rm -rf Python-3.5.10*
+    cd .. && rm -rf Python-3.7.10*
 
 # Copy file RKNN Toolkit và các thư viện cần thiết vào container
-COPY rk3588_onnx2rknn_aarch64/rknn_toolkit-1.7.5-cp35-cp35m-linux_aarch64.whl /root/
-COPY rk3588_onnx2rknn_aarch64/requirements.txt /root/
+COPY rk3588_onnx2rknn_aarch64_p37/rknn_toolkit-1.7.5-cp35-cp35m-linux_aarch64.whl /root/
+COPY rk3588_onnx2rknn_aarch64_p37/requirements.txt /root/
 
 # Cài đặt RKNN Toolkit
 RUN python3.5 -m pip install --upgrade pip && \
