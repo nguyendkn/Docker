@@ -1,5 +1,5 @@
-# Sử dụng base image Ubuntu cho ARM64
-FROM arm64v8/ubuntu:22.04
+# Sử dụng base image Ubuntu cho ARM64 từ arm64v8
+FROM arm64v8/ubuntu:latest
 
 # Thiết lập các biến môi trường cần thiết
 ENV DEBIAN_FRONTEND=noninteractive
